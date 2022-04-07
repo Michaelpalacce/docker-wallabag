@@ -1,7 +1,7 @@
 # GET LATEST VERSION FROM: https://github.com/wallabag/wallabag
 VERSION=$(curl -s -XGET https://api.github.com/repos/wallabag/wallabag/tags | grep name -m 1 | awk '{print $2}' | cut -d'"' -f2)
 
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm64/v8 \
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 \
 -t stefangenov/wallabag:latest \
 -t stefangenov/wallabag:"${VERSION}" \
 -f Dockerfile \
